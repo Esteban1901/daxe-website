@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DAXE</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm custom-navbar">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav" style="font-size: 1rem;">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">INICIO</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#aptitudes">QUÉ HACEMOS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#trabajos">TRABAJOS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">CONTACTO</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="inicio"
+        class="vh-100 position-relative d-flex align-items-center justify-content-center text-center text-white">
+        <div class="overlay"></div>
+        <div class="container position-relative z-2" data-aos="fade-up">
+            <h1 class="display-4 fw-bold glow-text" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
+                Daxe Ingeniería.</h1>
+            <p class="lead" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">Hacemos realidad tus
+                proyectos.</p>
+        </div>
+    </header>
+
+    <section id="aptitudes" class="py-5">
+        <div class="container text-center">
+            <h2 class="mb-5" data-aos="fade-up">Qué hacemos</h2>
+            <div class="row" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-4">
+                    <h5>Diseñado de planos</h5>
+                    <p>Modelado y creación de planos para diversos proyectos de ingeniería.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Gestión de obras</h5>
+                    <p>Planificación, supervisión y dirección técnica de obras.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Consultoría técnica</h5>
+                    <p>Asesoramiento profesional y soluciones de ingeniería.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="trabajos" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Proyectos realizados</h2>
+
+            <div class="row align-items-center mb-5" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-6">
+                    <img src="/assets/pictures/anteproyectos-arquitectonicos.jpg" class="img-fluid rounded-4 shadow"
+                        alt="Proyecto 1" />
+                </div>
+                <div class="col-md-6 text-light">
+                    <h4>Galpón Telas Yarur</h4>
+                    <p>Diseño eléctrico completo, implementación en terreno y supervisión final.</p>
+                </div>
+            </div>
+
+            <div class="row align-items-center mb-5 flex-md-row-reverse" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-6">
+                    <img src="/assets/pictures/sirva-un-tecnico-electrico-que-trabaja-en-una-centralita-con-fusibles.jpg"
+                        class="img-fluid rounded-4 shadow" alt="Proyecto 2" />
+                </div>
+                <div class="col-md-6 text-light">
+                    <h4>Generador Planta Pescadores</h4>
+                    <p>Instalación de generador para garantizar continuidad operacional en industria de productos
+                        marítimos.</p>
+                </div>
+            </div>
+
+            <div class="row align-items-center mb-5" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-6">
+                    <img src="/assets/pictures/vista-de-almacen-completo-con-carretilla-elevadora.jpg"
+                        class="img-fluid rounded-4 shadow" alt="Proyecto 3" />
+                </div>
+                <div class="col-md-6 text-light">
+                    <h4>Tienda Scorpi</h4>
+                    <p>Planos, cálculo eléctrico e instalación en dos locales comerciales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-5 bg-dark text-white">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Contacto</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <form id="contactForm" class="bg-secondary p-4 rounded-4 shadow-lg">
+                        <div class="mb-3">
+                            <label class="form-label"><i class="bi bi-person-fill me-2"></i>Nombre</label>
+                            <input type="text" name="nombre" class="form-control rounded-3 shadow-sm"
+                                placeholder="Tu nombre" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label"><i class="bi bi-envelope-fill me-2"></i>Correo</label>
+                            <input type="email" name="correo" class="form-control rounded-3 shadow-sm"
+                                placeholder="tucorreo@ejemplo.com" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label"><i class="bi bi-chat-left-dots-fill me-2"></i>Mensaje</label>
+                            <textarea name="mensaje" class="form-control rounded-3 shadow-sm" rows="4"
+                                placeholder="Escribe tu mensaje..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100 fw-semibold">Enviar mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center py-4 text-white">
+        <p class="mb-0">© 2025 DAXE Ingeniería · Todos los derechos reservados</p>
+        <p class="text-center mt-1 small text-white">
+            info@daxe.cl · F. 32 215 4129 · Viña del Mar
+        </p>
+    </footer>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>AOS.init();</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        emailjs.init("-yyD4CuNmlSQdY_xK");
+
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const status = document.getElementById("formStatus");
+            status.textContent = "Enviando mensaje...";
+
+            emailjs.sendForm("service_mpu9vqi", "template_xonqeva", this)
+                .then(() => {
+                    status.textContent = "Mensaje enviado correctamente ✔️";
+                    this.reset();
+                })
+                .catch((error) => {
+                    status.textContent = "Ocurrió un error al enviar el mensaje ❌";
+                    console.error("EmailJS error:", error);
+                });
+        });
+    </script>
+</body>
+
+</html>

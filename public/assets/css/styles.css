@@ -32,34 +32,63 @@ header .container {
 #titulo {
     color: #fff;
     opacity: 0;
-    transition: opacity 0.6s ease-in;
     font-weight: 700;
     font-size: 3rem;
+    transition: opacity 0.8s ease-in;
 }
 
-#titulo.glow-text {
+#titulo.fade-in {
     opacity: 1;
-    text-shadow:
-        0 0 5px rgba(212, 175, 55, 0.6),
-        0 0 15px rgba(212, 175, 55, 0.4),
-        0 0 30px rgba(212, 175, 55, 0.3);
-    animation: flickerGlow 3s infinite alternate;
 }
 
-@keyframes flickerGlow {
+@keyframes titleFlicker {
     0% {
-        text-shadow:
-            0 0 4px rgba(212, 175, 55, 0.3),
-            0 0 10px rgba(212, 175, 55, 0.2),
-            0 0 20px rgba(212, 175, 55, 0.1);
+        text-shadow: none;
+        opacity: 0.6;
+    }
+
+    20% {
+        text-shadow: 0 0 5px #d4af37;
+        opacity: 0.8;
+    }
+
+    40% {
+        text-shadow: 0 0 10px #d4af37;
+        opacity: 0.7;
+    }
+
+    60% {
+        text-shadow: 0 0 20px #d4af37;
+        opacity: 0.9;
+    }
+
+    80% {
+        text-shadow: 0 0 25px #d4af37;
+        opacity: 1;
     }
 
     100% {
-        text-shadow:
-            0 0 6px rgba(212, 175, 55, 0.6),
-            0 0 12px rgba(212, 175, 55, 0.4),
-            0 0 24px rgba(212, 175, 55, 0.3);
+        text-shadow: 0 0 30px #d4af37, 0 0 50px #d4af37, 0 0 80px #d4af37;
+        opacity: 1;
     }
+}
+
+@keyframes intenseGlow {
+    0% {
+        text-shadow: 0 0 25px rgba(212, 175, 55, 0.8), 0 0 50px rgba(212, 175, 55, 0.6);
+    }
+
+    50% {
+        text-shadow: 0 0 30px rgba(212, 175, 55, 1), 0 0 60px rgba(212, 175, 55, 0.8);
+    }
+
+    100% {
+        text-shadow: 0 0 35px rgba(212, 175, 55, 1), 0 0 70px rgba(212, 175, 55, 0.9);
+    }
+}
+
+#titulo.flicker-glow {
+    animation: titleFlicker 1.5s forwards, intenseGlow 3s 1.5s infinite alternate;
 }
 
 #subtitulo {

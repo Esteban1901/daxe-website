@@ -264,20 +264,23 @@
             const texto = "Consultoría en ingeniería para procesos más inteligentes.";
             let i = 0;
 
-            titulo.style.opacity = "1";
+            setTimeout(() => {
+                titulo.classList.add("fade-in");
+            }, 200);
 
-            function typeWriter() {
-                if (i < texto.length) {
-                    subtitulo.textContent += texto.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 50);
-                } else {
-                    titulo.classList.add("glow-text");
-                    subtitulo.style.borderRight = "none";
+            setTimeout(() => {
+                function typeWriter() {
+                    if (i < texto.length) {
+                        subtitulo.textContent += texto.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 50);
+                    } else {
+                        titulo.classList.add("flicker-glow");
+                        subtitulo.style.borderRight = "none";
+                    }
                 }
-            }
-
-            setTimeout(typeWriter, 500);
+                typeWriter();
+            }, 1300);
         });
     </script>
     <script>

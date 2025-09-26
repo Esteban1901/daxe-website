@@ -10,6 +10,7 @@
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body>
@@ -23,6 +24,7 @@
                     <li class="nav-item"><a class="nav-link" href="#inicio">INICIO</a></li>
                     <li class="nav-item"><a class="nav-link" href="#aptitudes">¿QUÉ HACEMOS?</a></li>
                     <li class="nav-item"><a class="nav-link" href="#trabajos">TRABAJOS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#clientes">CLIENTES</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contacto">CONTACTO</a></li>
                 </ul>
             </div>
@@ -32,13 +34,11 @@
     <header id="inicio"
         class="vh-100 position-relative d-flex align-items-center justify-content-center text-center text-white">
         <div class="overlay"></div>
-        <div class="container position-relative z-2" data-aos="fade-up">
-            <img src="assets/pictures/logoDaxe-yellow.png" class="ig-fluid" style="opacity: 1.0;"
+        <div class="container position-relative z-2">
+            <img src="assets/pictures/logoDaxe-yellow.png" class="img-fluid" style="opacity: 1.0;"
                 alt="Daxe Ingenieria" />
-            <h1 class="display-4 fw-bold glow-text" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-                Daxe Ingeniería</h1>
-            <p class="lead" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">Consultoría en ingeniería
-                para procesos más inteligentes.</p>
+            <h1 id="titulo" class="display-4 fw-bold">Daxe Ingeniería</h1>
+            <p id="subtitulo" class="lead"></p>
         </div>
     </header>
 
@@ -57,7 +57,7 @@
                     <div class="aptitud-card" data-info="consultoria">
                         <img src="assets/pictures/consultoría.jpg" class="img-fluid rounded-2 shadow aptitud-img"
                             alt="Consultorías Técnicas" />
-                        <h5 class="mt-3">CONULTORÍAS TÉCNICAS</h5>
+                        <h5 class="mt-3">CONSULTORÍAS TÉCNICAS</h5>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -69,9 +69,33 @@
                 </div>
             </div>
 
-            <div id="infoBox" class="mt-5 p-4 rounded-4 shadow-lg text-start d-none">
+            <div id="infoBox" class="mt-5 rounded-4 shadow-lg text-start">
                 <h5 id="infoTitle" class="text-warning mb-3"></h5>
                 <p id="infoContent" class="text-light"></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="clientes" class="py-5">
+        <div class="container mt-5">
+            <h2 class="text-center mb-5 glow-text">Nuestros Clientes</h2>
+            <div class="swiper clientesSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide text-center">
+                        <img src="assets/pictures/logo aerzen.jpeg" class="client-logo" alt="aerzen">
+                    </div>
+                    <div class="swiper-slide text-center">
+                        <img src="assets/pictures/logo importadora.png" class="client-logo" alt="importadora">
+                    </div>
+                    <div class="swiper-slide text-center">
+                        <img src="assets/pictures/logo panor.png" class="client-logo" alt="panor">
+                    </div>
+                    <div class="swiper-slide text-center">
+                        <img src="assets/pictures/logo pescadores.png" class="client-logo" alt="pescadores">
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
         </div>
     </section>
@@ -210,6 +234,7 @@
 
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>AOS.init();</script>
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -233,6 +258,53 @@
         });
     </script>
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const titulo = document.getElementById("titulo");
+            const subtitulo = document.getElementById("subtitulo");
+            const texto = "Consultoría en ingeniería para procesos más inteligentes.";
+            let i = 0;
+
+            titulo.style.opacity = "1";
+
+            function typeWriter() {
+                if (i < texto.length) {
+                    subtitulo.textContent += texto.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                } else {
+                    titulo.classList.add("glow-text");
+                    subtitulo.style.borderRight = "none";
+                }
+            }
+
+            setTimeout(typeWriter, 500);
+        });
+    </script>
+    <script>
+        const swiper = new Swiper(".clientesSwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            coverflowEffect: {
+                rotate: 1,
+                stretch: 10,
+                depth: 700,
+                modifier: 1,
+                slideShadows: false,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+    <script>
         const infoData = {
             desarrollo: {
                 title: "Desarrollo de Proyectos",
@@ -253,19 +325,34 @@
         const infoTitle = document.getElementById("infoTitle");
         const infoContent = document.getElementById("infoContent");
 
+        let activeCard = null;
+
         cards.forEach(card => {
             card.addEventListener("click", () => {
                 const key = card.getAttribute("data-info");
-                const data = infoData[key];
 
+                if (activeCard === card) {
+                    infoBox.classList.remove("show");
+                    card.classList.remove("active");
+                    activeCard = null;
+                    return;
+                }
+
+                const data = infoData[key];
                 infoTitle.textContent = data.title;
                 infoContent.textContent = data.content;
-                infoBox.classList.remove("d-none");
+
+                infoBox.classList.add("show");
 
                 cards.forEach(c => c.classList.remove("active"));
                 card.classList.add("active");
+                activeCard = card;
             });
         });
+        window.history.scrollRestoration = "manual";
+        window.onload = function () {
+            window.scrollTo(0, 0);
+        };
     </script>
 </body>
 

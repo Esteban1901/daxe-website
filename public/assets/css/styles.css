@@ -29,17 +29,20 @@ header .container {
     z-index: 2;
 }
 
-header h1,
-header p {
-    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+#titulo {
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.6s ease-in;
+    font-weight: 700;
+    font-size: 3rem;
 }
 
-.glow-text {
-    color: #fff;
+#titulo.glow-text {
+    opacity: 1;
     text-shadow:
-        0 0 5px rgba(212, 175, 55, 0.5),
-        0 0 10px rgba(212, 175, 55, 0.4),
-        0 0 20px rgba(212, 175, 55, 0.3);
+        0 0 5px rgba(212, 175, 55, 0.6),
+        0 0 15px rgba(212, 175, 55, 0.4),
+        0 0 30px rgba(212, 175, 55, 0.3);
     animation: flickerGlow 3s infinite alternate;
 }
 
@@ -57,6 +60,16 @@ header p {
             0 0 12px rgba(212, 175, 55, 0.4),
             0 0 24px rgba(212, 175, 55, 0.3);
     }
+}
+
+#subtitulo {
+    display: inline-block;
+    border-right: 2px solid #d4af37;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 1.2rem;
+    color: #eee;
+    margin-top: 15px;
 }
 
 section {
@@ -189,13 +202,15 @@ footer {
     padding: 1rem;
     border-radius: 1rem;
     background-color: #1e1e1e;
-    box-shadow: 0 0 10px  rgba(255, 215, 0, 0.05);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.05);
 }
+
 .aptitud-card h5 {
     color: #d4af37;
     font-size: 1.0rem;
     margin-bottom: 0.5rem;
 }
+
 .aptitud-card img {
     width: 100%;
     height: auto;
@@ -217,5 +232,47 @@ footer {
     background-color: #222;
     border: 1px solid #5f5534;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.541);
-    transition: opacity 0.3s ease;
+    overflow: hidden;
+
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    padding: 0 1rem;
+    transition: max-height 0.6s ease, opacity 0.6s ease, margin-top 0.6s ease, padding 0.6s ease;
+}
+
+#infoBox.show {
+    max-height: 1200px;
+    opacity: 1;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.client-logo {
+    max-height: 120px;
+    width: auto;
+    transition: all 0.4s ease;
+}
+
+.client-logo:hover {
+    transform: scale(1.1);
+}
+
+.swiper {
+    padding-bottom: 3rem;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #d4af37;
+}
+
+.clientesSwiper .swiper-slide {
+    width: 800px;
+    transition: width 4s;
+    will-change: width;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
